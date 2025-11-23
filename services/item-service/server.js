@@ -8,7 +8,7 @@ const serviceRegistry = require('../../shared/serviceRegistry');
 class ItemService {
     constructor() {
         this.app = express();
-        this.port = 3002;
+        this.port = process.env.PORT || 3002;
         this.serviceName = 'item-service';
         this.serviceUrl = `http://localhost:${this.port}`;
         this.jwtSecret = process.env.JWT_SECRET || 'item-service-secret';

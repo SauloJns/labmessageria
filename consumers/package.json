@@ -1,0 +1,17 @@
+{
+  "name": "consumers",
+  "version": "1.0.0",
+  "description": "RabbitMQ consumers for lista-compras demo",
+  "main": "notification-consumer.js",
+  "scripts": {
+    "start:notification": "node notification-consumer.js",
+    "start:analytics": "node analytics-consumer.js",
+    "start:all": "concurrently \"node notification-consumer.js\" \"node analytics-consumer.js\""
+  },
+  "dependencies": {
+    "amqplib": "^0.10.3"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}

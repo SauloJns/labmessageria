@@ -2,6 +2,7 @@ const express = require('express');
 const { v4: uuidv4 } = require('uuid');
 const jwt = require('jsonwebtoken');
 const axios = require('axios');
+const amqp = require('amqplib');
 
 const JsonDatabase = require('../../shared/JsonDatabase');
 const serviceRegistry = require('../../shared/serviceRegistry');
@@ -9,7 +10,7 @@ const serviceRegistry = require('../../shared/serviceRegistry');
 class ListService {
     constructor() {
         this.app = express();
-        this.port = 3003;
+        this.port = process.env.PORT || 3003;
         this.serviceName = 'list-service';
         this.serviceUrl = `http://localhost:${this.port}`;
         this.jwtSecret = 'microservices-secret-key-2024'; 
@@ -94,6 +95,7 @@ class ListService {
         this.app.get('/search', this.searchLists.bind(this));
 
         this.app.post('/lists/:id/items', this.addItem.bind(this));
+        this.app.post('/lists/:id/checkout', this.checkoutList.bind(this));
         this.app.put('/lists/:id/items/:itemId', this.updateItem.bind(this));
         this.app.delete('/lists/:id/items/:itemId', this.removeItem.bind(this));
         this.app.get('/lists/:id/summary', this.getSummary.bind(this));
@@ -119,6 +121,15 @@ class ListService {
     }
 
     authMiddleware(req, res, next) {
+        // Allow skipping auth in local/dev using environment variable
+        if (process.env.SKIP_AUTH === 'true') {
+            req.user = {
+                id: process.env.SKIP_AUTH_USER_ID || 'a368e497-d4a8-454c-af76-4862b633558a',
+                email: process.env.SKIP_AUTH_USER_EMAIL || 'demo@usuario.com'
+            };
+            console.log('⚠️ SKIP_AUTH enabled - usando usuário de desenvolvimento:', req.user.id);
+            return next();
+        }
         const authHeader = req.headers.authorization;
 
         if (!authHeader) {
@@ -631,6 +642,73 @@ class ListService {
         }
     }
 
+    async checkoutList(req, res) {
+        try {
+            const { id } = req.params;
+
+            const list = await this.listsDb.findById(id);
+
+            if (!list) {
+                return res.status(404).json({
+                    success: false,
+                    message: 'Lista não encontrada'
+                });
+            }
+
+            if (list.userId !== req.user.id) {
+                return res.status(403).json({
+                    success: false,
+                    message: 'Acesso negado'
+                });
+            }
+
+            // Build event payload
+            const event = {
+                eventId: uuidv4(),
+                type: 'list.checkout.completed',
+                occurredAt: new Date().toISOString(),
+                data: {
+                    listId: id,
+                    userId: req.user.id,
+                    userEmail: req.user.email || null,
+                    items: list.items,
+                    summary: list.summary
+                }
+            };
+
+            // Publish to RabbitMQ (exchange: shopping_events, routing key: list.checkout.completed)
+            // Use CLOUD AMQPS instance by default when RABBITMQ_URL not provided
+            const rabbitUrl = process.env.RABBITMQ_URL || 'amqps://kjojionw:EF3ykbemEFsNtbElSSIWe60mMc1-rYQM@jaragua.lmq.cloudamqp.com/kjojionw';
+            try {
+                const connection = await amqp.connect(rabbitUrl);
+                const channel = await connection.createChannel();
+                const exchange = 'shopping_events';
+                await channel.assertExchange(exchange, 'topic', { durable: true });
+                const routingKey = 'list.checkout.completed';
+                channel.publish(exchange, routingKey, Buffer.from(JSON.stringify(event)), { persistent: false });
+                await channel.close();
+                await connection.close();
+                console.log('📤 Evento publicado em', exchange, routingKey);
+            } catch (err) {
+                console.error('❌ Erro ao publicar evento RabbitMQ:', err.message);
+                // Do not fail the request if messaging is down
+            }
+
+            // Return 202 Accepted immediately
+            res.status(202).json({
+                success: true,
+                message: 'Checkout recebido. Processamento assíncrono em andamento.'
+            });
+
+        } catch (error) {
+            console.error('❌ Erro no checkout:', error);
+            res.status(500).json({
+                success: false,
+                message: 'Erro interno do servidor'
+            });
+        }
+    }
+
     calculateSummary(list) {
         const summary = {
             totalItems: 0,
@@ -663,6 +741,7 @@ class ListService {
                     version: '1.0.0',
                     endpoints: [
                         '/lists', 
+                        '/lists/:id/checkout',
                         '/lists/:id', 
                         '/lists/:id/items', 
                         '/lists/:id/summary',

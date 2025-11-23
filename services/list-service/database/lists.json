@@ -90,5 +90,229 @@
     },
     "createdAt": "2025-09-22T15:08:12.970Z",
     "updatedAt": "2025-09-22T15:08:14.009Z"
+  },
+  {
+    "id": "c7c7443d-91a7-4563-b25f-31a30f7575c5",
+    "userId": "a368e497-d4a8-454c-af76-4862b633558a",
+    "name": "Minha Lista Direta",
+    "description": "",
+    "status": "active",
+    "items": [],
+    "summary": {
+      "totalItems": 0,
+      "purchasedItems": 0,
+      "estimatedTotal": 0
+    },
+    "createdAt": "2025-11-23T13:33:26.707Z",
+    "updatedAt": "2025-11-23T13:33:26.708Z"
+  },
+  {
+    "id": "50215bc5-afb3-4e4d-858f-776ba4fe965f",
+    "userId": "a368e497-d4a8-454c-af76-4862b633558a",
+    "name": "Lista Demo Aula",
+    "description": "",
+    "status": "active",
+    "items": [],
+    "summary": {
+      "totalItems": 0,
+      "purchasedItems": 0,
+      "estimatedTotal": 0
+    },
+    "createdAt": "2025-11-23T13:46:19.738Z",
+    "updatedAt": "2025-11-23T13:46:19.739Z"
+  },
+  {
+    "id": "132ca936-3977-4f22-bc4c-e461533acad9",
+    "userId": "877bb914-5a17-4107-85e8-ebe876c55e3b",
+    "name": "Minha Primeira Lista",
+    "description": "Lista de compras de demonstração",
+    "status": "active",
+    "items": [
+      {
+        "itemId": "599cc86b-4247-4cbb-9aee-859e71b84745",
+        "itemName": "Arroz",
+        "quantity": 4,
+        "unit": "kg",
+        "estimatedPrice": 5.99,
+        "purchased": true,
+        "notes": "Item de demonstração",
+        "addedAt": "2025-11-23T16:49:45.291Z",
+        "updatedAt": "2025-11-23T16:49:46.182Z"
+      },
+      {
+        "itemId": "39da73ea-01f8-4aae-8363-c63b6da67021",
+        "itemName": "Açúcar",
+        "quantity": 2,
+        "unit": "kg",
+        "estimatedPrice": 4.29,
+        "purchased": false,
+        "notes": "Item de demonstração",
+        "addedAt": "2025-11-23T16:49:45.503Z",
+        "updatedAt": "2025-11-23T16:49:45.503Z"
+      },
+      {
+        "itemId": "8e555c84-e154-49de-8885-75cd2c0d5ae9",
+        "itemName": "Biscoito",
+        "quantity": 1,
+        "unit": "un",
+        "estimatedPrice": 3.99,
+        "purchased": false,
+        "notes": "Item de demonstração",
+        "addedAt": "2025-11-23T16:49:45.719Z",
+        "updatedAt": "2025-11-23T16:49:45.719Z"
+      },
+      {
+        "itemId": "56498b7d-a65d-4815-ae8b-d9a5408ab2c2",
+        "itemName": "Bolo",
+        "quantity": 2,
+        "unit": "kg",
+        "estimatedPrice": 19.99,
+        "purchased": false,
+        "notes": "Item de demonstração",
+        "addedAt": "2025-11-23T16:49:45.940Z",
+        "updatedAt": "2025-11-23T16:49:45.940Z"
+      }
+    ],
+    "summary": {
+      "totalItems": 9,
+      "purchasedItems": 4,
+      "estimatedTotal": 76.50999999999999
+    },
+    "createdAt": "2025-11-23T16:49:45.272Z",
+    "updatedAt": "2025-11-23T16:49:46.183Z"
+  },
+  {
+    "id": "153f9ae4-5ff7-4ff1-9999-14dfe7cc2d48",
+    "userId": "877bb914-5a17-4107-85e8-ebe876c55e3b",
+    "name": "Lista de Limpeza",
+    "description": "Produtos de limpeza",
+    "status": "active",
+    "items": [],
+    "summary": {
+      "totalItems": 0,
+      "purchasedItems": 0,
+      "estimatedTotal": 0
+    },
+    "createdAt": "2025-11-23T16:49:46.162Z",
+    "updatedAt": "2025-11-23T16:49:46.162Z"
+  },
+  {
+    "id": "c6d93227-7976-4041-912a-baba5806c86c",
+    "userId": "66e61aa1-2bf6-4f44-9591-e0fbcb46623e",
+    "name": "Lista Teste RabbitMQ",
+    "description": "Testando mensageria assíncrona",
+    "status": "active",
+    "items": [
+      {
+        "itemId": "599cc86b-4247-4cbb-9aee-859e71b84745",
+        "itemName": "Arroz",
+        "quantity": 1,
+        "unit": "kg",
+        "estimatedPrice": 5.99,
+        "purchased": false,
+        "notes": "",
+        "addedAt": "2025-11-23T16:52:13.245Z",
+        "updatedAt": "2025-11-23T16:52:13.245Z"
+      },
+      {
+        "itemId": "39da73ea-01f8-4aae-8363-c63b6da67021",
+        "itemName": "Açúcar",
+        "quantity": 2,
+        "unit": "kg",
+        "estimatedPrice": 4.29,
+        "purchased": false,
+        "notes": "",
+        "addedAt": "2025-11-23T16:52:13.257Z",
+        "updatedAt": "2025-11-23T16:52:13.257Z"
+      }
+    ],
+    "summary": {
+      "totalItems": 3,
+      "purchasedItems": 0,
+      "estimatedTotal": 14.57
+    },
+    "createdAt": "2025-11-23T16:52:13.233Z",
+    "updatedAt": "2025-11-23T16:52:13.258Z"
+  },
+  {
+    "id": "f18b7536-8f0d-499f-a9d1-1dd75d0948bc",
+    "userId": "66e61aa1-2bf6-4f44-9591-e0fbcb46623e",
+    "name": "Lista Rápida 1",
+    "description": "Teste rápido 1",
+    "status": "active",
+    "items": [
+      {
+        "itemId": "599cc86b-4247-4cbb-9aee-859e71b84745",
+        "itemName": "Arroz",
+        "quantity": 1,
+        "unit": "kg",
+        "estimatedPrice": 5.99,
+        "purchased": false,
+        "notes": "",
+        "addedAt": "2025-11-23T16:52:13.703Z",
+        "updatedAt": "2025-11-23T16:52:13.703Z"
+      }
+    ],
+    "summary": {
+      "totalItems": 1,
+      "purchasedItems": 0,
+      "estimatedTotal": 5.99
+    },
+    "createdAt": "2025-11-23T16:52:13.691Z",
+    "updatedAt": "2025-11-23T16:52:13.703Z"
+  },
+  {
+    "id": "634bd85f-7533-4b4a-ae9e-c227932f9dc5",
+    "userId": "66e61aa1-2bf6-4f44-9591-e0fbcb46623e",
+    "name": "Lista Rápida 2",
+    "description": "Teste rápido 2",
+    "status": "active",
+    "items": [
+      {
+        "itemId": "599cc86b-4247-4cbb-9aee-859e71b84745",
+        "itemName": "Arroz",
+        "quantity": 2,
+        "unit": "kg",
+        "estimatedPrice": 5.99,
+        "purchased": false,
+        "notes": "",
+        "addedAt": "2025-11-23T16:52:14.528Z",
+        "updatedAt": "2025-11-23T16:52:14.528Z"
+      }
+    ],
+    "summary": {
+      "totalItems": 2,
+      "purchasedItems": 0,
+      "estimatedTotal": 11.98
+    },
+    "createdAt": "2025-11-23T16:52:14.516Z",
+    "updatedAt": "2025-11-23T16:52:14.529Z"
+  },
+  {
+    "id": "45c0ef6f-27e8-491c-9c96-e58741157e85",
+    "userId": "66e61aa1-2bf6-4f44-9591-e0fbcb46623e",
+    "name": "Lista Rápida 3",
+    "description": "Teste rápido 3",
+    "status": "active",
+    "items": [
+      {
+        "itemId": "599cc86b-4247-4cbb-9aee-859e71b84745",
+        "itemName": "Arroz",
+        "quantity": 3,
+        "unit": "kg",
+        "estimatedPrice": 5.99,
+        "purchased": false,
+        "notes": "",
+        "addedAt": "2025-11-23T16:52:15.366Z",
+        "updatedAt": "2025-11-23T16:52:15.366Z"
+      }
+    ],
+    "summary": {
+      "totalItems": 3,
+      "purchasedItems": 0,
+      "estimatedTotal": 17.97
+    },
+    "createdAt": "2025-11-23T16:52:15.356Z",
+    "updatedAt": "2025-11-23T16:52:15.366Z"
   }
 ]
