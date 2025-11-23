@@ -10,7 +10,7 @@
       "/health"
     ],
     "registeredAt": 1763915952301,
-    "lastHealthCheck": 1763917360607,
+    "lastHealthCheck": 1763917420622,
     "healthy": true,
     "pid": 17264
   },
@@ -26,7 +26,7 @@
       "/search"
     ],
     "registeredAt": 1763915956145,
-    "lastHealthCheck": 1763917360611,
+    "lastHealthCheck": 1763917420625,
     "healthy": true,
     "pid": 3348
   },
@@ -40,7 +40,7 @@
       "/users/:id"
     ],
     "registeredAt": 1763915948126,
-    "lastHealthCheck": 1763917360615,
+    "lastHealthCheck": 1763917420628,
     "healthy": true,
     "pid": 3068
   }
