@@ -9,10 +9,10 @@
       "/categories",
       "/health"
     ],
-    "registeredAt": 1763915952301,
-    "lastHealthCheck": 1763917420622,
+    "registeredAt": 1764020193480,
+    "lastHealthCheck": 1764020371626,
     "healthy": true,
-    "pid": 17264
+    "pid": 19600
   },
   "list-service": {
     "url": "http://localhost:3003",
@@ -25,10 +25,10 @@
       "/lists/:id/summary",
       "/search"
     ],
-    "registeredAt": 1763915956145,
-    "lastHealthCheck": 1763917420625,
+    "registeredAt": 1764020192575,
+    "lastHealthCheck": 1764020371629,
     "healthy": true,
-    "pid": 3348
+    "pid": 28952
   },
   "user-service": {
     "url": "http://localhost:3001",
@@ -39,9 +39,9 @@
       "/auth/validate",
       "/users/:id"
     ],
-    "registeredAt": 1763915948126,
-    "lastHealthCheck": 1763917420628,
+    "registeredAt": 1764020192516,
+    "lastHealthCheck": 1764020371632,
     "healthy": true,
-    "pid": 3068
+    "pid": 15612
   }
 }

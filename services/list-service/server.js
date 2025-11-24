@@ -23,7 +23,7 @@ class ListService {
 
     setupDatabase() {
         this.listsDb = new JsonDatabase(__dirname, 'lists');
-        console.log('📁 List Service: Banco NoSQL inicializado');
+        console.log('List Service: Banco NoSQL inicializado');
     }
 
     setupMiddleware() {
@@ -112,7 +112,7 @@ class ListService {
         });
 
         this.app.use((error, req, res, next) => {
-            console.error('❌ List Service Error:', error);
+            console.error('List Service Error:', error);
             res.status(500).json({ 
                 success: false, 
                 message: 'Erro interno do serviço',
@@ -122,13 +122,12 @@ class ListService {
     }
 
     authMiddleware(req, res, next) {
-        // Allow skipping auth in local/dev using environment variable
         if (process.env.SKIP_AUTH === 'true') {
             req.user = {
                 id: process.env.SKIP_AUTH_USER_ID || 'a368e497-d4a8-454c-af76-4862b633558a',
                 email: process.env.SKIP_AUTH_USER_EMAIL || 'demo@usuario.com'
             };
-            console.log('⚠️ SKIP_AUTH enabled - usando usuário de desenvolvimento:', req.user.id);
+            console.log('SKIP_AUTH enabled - usando usuário de desenvolvimento:', req.user.id);
             return next();
         }
         const authHeader = req.headers.authorization;
@@ -154,10 +153,10 @@ class ListService {
         try {
             const decoded = jwt.verify(token, this.jwtSecret);
             req.user = decoded;
-            console.log('🔐 Usuário autenticado:', decoded.email);
+            console.log('Usuário autenticado:', decoded.email);
             next();
         } catch (error) {
-            console.error('❌ Erro na validação do token:', error.message);
+            console.error('Erro na validação do token:', error.message);
             res.status(401).json({ 
                 success: false, 
                 message: 'Token inválido ou expirado' 
@@ -169,7 +168,7 @@ class ListService {
         try {
             const { name, description } = req.body;
 
-            console.log('🛒 Criando lista para usuário:', req.user.id);
+            console.log('Criando lista para usuário:', req.user.id);
 
             if (!name) {
                 return res.status(400).json({ 
@@ -194,7 +193,7 @@ class ListService {
                 updatedAt: new Date().toISOString()
             });
 
-            console.log('✅ Lista criada:', list.id);
+            console.log('Lista criada:', list.id);
 
             res.status(201).json({
                 success: true,
@@ -203,7 +202,7 @@ class ListService {
             });
 
         } catch (error) {
-            console.error('❌ Erro ao criar lista:', error);
+            console.error('Erro ao criar lista:', error);
             res.status(500).json({ 
                 success: false, 
                 message: 'Erro interno do servidor' 
@@ -213,7 +212,7 @@ class ListService {
 
     async getLists(req, res) {
     try {
-        console.log('📋 Buscando listas do usuário:', req.user.id);
+        console.log('Buscando listas do usuário:', req.user.id);
         
         const lists = await this.listsDb.find({ 
             userId: req.user.id 
@@ -229,7 +228,7 @@ class ListService {
         });
 
     } catch (error) {
-        console.error('❌ Erro ao buscar listas:', error);
+        console.error('Erro ao buscar listas:', error);
         res.status(500).json({ 
             success: false, 
             message: 'Erro interno do servidor' 
@@ -241,7 +240,7 @@ class ListService {
         try {
             const { id } = req.params;
             
-            console.log('👀 Buscando lista:', id, 'para usuário:', req.user.id);
+            console.log('Buscando lista:', id, 'para usuário:', req.user.id);
 
             const list = await this.listsDb.findById(id);
 
@@ -265,7 +264,7 @@ class ListService {
             });
 
         } catch (error) {
-            console.error('❌ Erro ao buscar lista:', error);
+            console.error('Erro ao buscar lista:', error);
             res.status(500).json({ 
                 success: false, 
                 message: 'Erro interno do servidor' 
@@ -278,7 +277,7 @@ class ListService {
             const { id } = req.params;
             const { name, description, status } = req.body;
 
-            console.log('✏️ Atualizando lista:', id);
+            console.log('Atualizando lista:', id);
 
             const list = await this.listsDb.findById(id);
 
@@ -312,7 +311,7 @@ class ListService {
             });
 
         } catch (error) {
-            console.error('❌ Erro ao atualizar lista:', error);
+            console.error('Erro ao atualizar lista:', error);
             res.status(500).json({ 
                 success: false, 
                 message: 'Erro interno do servidor' 
@@ -324,7 +323,7 @@ class ListService {
         try {
             const { id } = req.params;
 
-            console.log('🗑️ Deletando lista:', id);
+            console.log('Deletando lista:', id);
 
             const list = await this.listsDb.findById(id);
 
@@ -350,7 +349,7 @@ class ListService {
             });
 
         } catch (error) {
-            console.error('❌ Erro ao deletar lista:', error);
+            console.error('Erro ao deletar lista:', error);
             res.status(500).json({ 
                 success: false, 
                 message: 'Erro interno do servidor' 
@@ -405,7 +404,7 @@ class ListService {
             const { id } = req.params;
             const { itemId, quantity, notes } = req.body;
 
-            console.log('📦 Adicionando item à lista:', { listId: id, itemId, quantity });
+            console.log('Adicionando item à lista:', { listId: id, itemId, quantity });
 
             if (!itemId || !quantity) {
                 return res.status(400).json({ 
@@ -443,7 +442,7 @@ class ListService {
                     throw new Error('Item não encontrado');
                 }
             } catch (error) {
-                console.error('❌ Erro ao buscar item:', error.message);
+                console.error('Erro ao buscar item:', error.message);
                 return res.status(404).json({ 
                     success: false, 
                     message: 'Item não encontrado no catálogo' 
@@ -478,7 +477,7 @@ class ListService {
                 updatedAt: new Date().toISOString()
             });
 
-            console.log('✅ Item adicionado/atualizado na lista');
+            console.log('Item adicionado/atualizado na lista');
 
             res.json({
                 success: true,
@@ -487,7 +486,7 @@ class ListService {
             });
 
         } catch (error) {
-            console.error('❌ Erro ao adicionar item:', error);
+            console.error('Erro ao adicionar item:', error);
             res.status(500).json({ 
                 success: false, 
                 message: 'Erro interno do servidor' 
@@ -500,7 +499,7 @@ class ListService {
             const { id, itemId } = req.params;
             const { quantity, purchased, notes } = req.body;
 
-            console.log('✏️ Atualizando item na lista:', { listId: id, itemId });
+            console.log('Atualizando item na lista:', { listId: id, itemId });
 
             const list = await this.listsDb.findById(id);
 
@@ -546,7 +545,7 @@ class ListService {
             });
 
         } catch (error) {
-            console.error('❌ Erro ao atualizar item:', error);
+            console.error('Erro ao atualizar item:', error);
             res.status(500).json({ 
                 success: false, 
                 message: 'Erro interno do servidor' 
@@ -558,7 +557,7 @@ class ListService {
         try {
             const { id, itemId } = req.params;
 
-            console.log('🗑️ Removendo item da lista:', { listId: id, itemId });
+            console.log('Removendo item da lista:', { listId: id, itemId });
 
             const list = await this.listsDb.findById(id);
 
@@ -601,7 +600,7 @@ class ListService {
             });
 
         } catch (error) {
-            console.error('❌ Erro ao remover item:', error);
+            console.error('Erro ao remover item:', error);
             res.status(500).json({ 
                 success: false, 
                 message: 'Erro interno do servidor' 
@@ -635,7 +634,7 @@ class ListService {
             });
 
         } catch (error) {
-            console.error('❌ Erro ao buscar resumo:', error);
+            console.error('Erro ao buscar resumo:', error);
             res.status(500).json({ 
                 success: false, 
                 message: 'Erro interno do servidor' 
@@ -646,6 +645,9 @@ class ListService {
     async checkoutList(req, res) {
         try {
             const { id } = req.params;
+
+            console.log('CHECKOUT INICIADO - Lista:', id);
+            console.log('Usuario:', req.user.email);
 
             const list = await this.listsDb.findById(id);
 
@@ -663,7 +665,6 @@ class ListService {
                 });
             }
 
-            // Build event payload
             const event = {
                 eventId: uuidv4(),
                 type: 'list.checkout.completed',
@@ -677,47 +678,37 @@ class ListService {
                 }
             };
 
-            // Publish to RabbitMQ (exchange: shopping_events, routing key: list.checkout.completed)
-            const rabbitUrl = process.env.RABBITMQ_URL || 'amqps://kjojionw:EF3ykbemEFsNtbElSSIWe60mMc1-rYQM@jaragua.lmq.cloudamqp.com/kjojionw';
-            try {
-                const connection = await amqp.connect(rabbitUrl);
-                const channel = await connection.createChannel();
-                const exchange = 'shopping_events';
-                await channel.assertExchange(exchange, 'topic', { durable: true });
-                const routingKey = 'list.checkout.completed';
-                
-                // Publicar mensagem
-                const published = channel.publish(exchange, routingKey, Buffer.from(JSON.stringify(event)), { persistent: true });
-                console.log('📤 Evento publicado em', exchange, routingKey, '- Sucesso:', published);
-                
-                // DEBUG: Verificar se o exchange existe
+            const rabbitUrl = 'amqps://kjojionw:EF3ykbemEFsNtbElSSIWe60mMc1-rYQM@jaragua.lmq.cloudamqp.com/kjojionw';
+            
+            setImmediate(async () => {
                 try {
-                    const check = await channel.checkExchange('shopping_events');
-                    console.log('✅ Exchange shopping_events existe');
-                } catch (e) {
-                    console.log('❌ Exchange shopping_events NÃO existe:', e.message);
+                    const conn = await amqp.connect(rabbitUrl);
+                    const channel = await conn.createChannel();
+                    
+                    await channel.assertExchange('shopping_events', 'topic', { durable: true });
+                    await channel.publish('shopping_events', 'list.checkout.completed', 
+                        Buffer.from(JSON.stringify(event))
+                    );
+                    
+                    console.log('MENSAGEM ENVIADA PARA RABBITMQ - Lista:', id);
+                    
+                    setTimeout(async () => {
+                        await channel.close();
+                        await conn.close();
+                    }, 5000);
+                    
+                } catch (err) {
+                    console.log('ERRO RABBITMQ:', err.message);
                 }
-                
-                // Aguardar um pouco para garantir entrega
-                await new Promise(resolve => setTimeout(resolve, 500));
-                
-                await channel.close();
-                await connection.close();
-                console.log('✅ Conexão RabbitMQ fechada');
-                
-            } catch (err) {
-                console.error('❌ Erro ao publicar evento RabbitMQ:', err.message);
-                // Não falha a requisição se o RabbitMQ estiver down
-            }
+            });
 
-            // Return 202 Accepted immediately
             res.status(202).json({
                 success: true,
                 message: 'Checkout recebido. Processamento assíncrono em andamento.'
             });
 
         } catch (error) {
-            console.error('❌ Erro no checkout:', error);
+            console.error('Erro no checkout:', error);
             res.status(500).json({
                 success: false,
                 message: 'Erro interno do servidor'
@@ -746,9 +737,9 @@ class ListService {
     start() {
         this.app.listen(this.port, () => {
             console.log('=====================================');
-            console.log(`🚀 List Service rodando na porta ${this.port}`);
-            console.log(`📍 URL: ${this.serviceUrl}`);
-            console.log(`❤️ Health: ${this.serviceUrl}/health`);
+            console.log('List Service rodando na porta ' + this.port);
+            console.log('URL: ' + this.serviceUrl);
+            console.log('Health: ' + this.serviceUrl + '/health');
             console.log('=====================================');
             
             setTimeout(() => {
@@ -773,13 +764,13 @@ const listService = new ListService();
 listService.start();
 
 process.on('SIGTERM', () => {
-    console.log('🛑 Recebido SIGTERM, encerrando List Service...');
+    console.log('Recebido SIGTERM, encerrando List Service...');
     serviceRegistry.unregister('list-service');
     process.exit(0);
 });
 
 process.on('SIGINT', () => {
-    console.log('🛑 Recebido SIGINT, encerrando List Service...');
+    console.log('Recebido SIGINT, encerrando List Service...');
     serviceRegistry.unregister('list-service');
     process.exit(0);
 });

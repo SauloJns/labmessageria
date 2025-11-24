@@ -314,5 +314,428 @@
     },
     "createdAt": "2025-11-23T16:52:15.356Z",
     "updatedAt": "2025-11-23T16:52:15.366Z"
+  },
+  {
+    "id": "0de87a4a-7eb4-4229-8624-72ecae91c265",
+    "userId": "f96fdebe-4369-438d-8c23-0c4f9b82b8f9",
+    "name": "Lista Teste RabbitMQ",
+    "description": "Testando mensageria assíncrona",
+    "status": "active",
+    "items": [
+      {
+        "itemId": "599cc86b-4247-4cbb-9aee-859e71b84745",
+        "itemName": "Arroz",
+        "quantity": 1,
+        "unit": "kg",
+        "estimatedPrice": 5.99,
+        "purchased": false,
+        "notes": "",
+        "addedAt": "2025-11-24T21:16:58.860Z",
+        "updatedAt": "2025-11-24T21:16:58.860Z"
+      },
+      {
+        "itemId": "39da73ea-01f8-4aae-8363-c63b6da67021",
+        "itemName": "Açúcar",
+        "quantity": 2,
+        "unit": "kg",
+        "estimatedPrice": 4.29,
+        "purchased": false,
+        "notes": "",
+        "addedAt": "2025-11-24T21:16:58.872Z",
+        "updatedAt": "2025-11-24T21:16:58.872Z"
+      }
+    ],
+    "summary": {
+      "totalItems": 3,
+      "purchasedItems": 0,
+      "estimatedTotal": 14.57
+    },
+    "createdAt": "2025-11-24T21:16:58.842Z",
+    "updatedAt": "2025-11-24T21:16:58.872Z"
+  },
+  {
+    "id": "f920d330-b506-45b4-8b9c-33cccb406e90",
+    "userId": "f96fdebe-4369-438d-8c23-0c4f9b82b8f9",
+    "name": "Lista Rápida 1",
+    "description": "Teste rápido 1",
+    "status": "active",
+    "items": [
+      {
+        "itemId": "599cc86b-4247-4cbb-9aee-859e71b84745",
+        "itemName": "Arroz",
+        "quantity": 1,
+        "unit": "kg",
+        "estimatedPrice": 5.99,
+        "purchased": false,
+        "notes": "",
+        "addedAt": "2025-11-24T21:16:58.915Z",
+        "updatedAt": "2025-11-24T21:16:58.915Z"
+      }
+    ],
+    "summary": {
+      "totalItems": 1,
+      "purchasedItems": 0,
+      "estimatedTotal": 5.99
+    },
+    "createdAt": "2025-11-24T21:16:58.902Z",
+    "updatedAt": "2025-11-24T21:16:58.916Z"
+  },
+  {
+    "id": "9bc0e803-44b1-491c-9a9f-a00f3a663473",
+    "userId": "f96fdebe-4369-438d-8c23-0c4f9b82b8f9",
+    "name": "Lista Rápida 2",
+    "description": "Teste rápido 2",
+    "status": "active",
+    "items": [
+      {
+        "itemId": "599cc86b-4247-4cbb-9aee-859e71b84745",
+        "itemName": "Arroz",
+        "quantity": 2,
+        "unit": "kg",
+        "estimatedPrice": 5.99,
+        "purchased": false,
+        "notes": "",
+        "addedAt": "2025-11-24T21:16:59.454Z",
+        "updatedAt": "2025-11-24T21:16:59.454Z"
+      }
+    ],
+    "summary": {
+      "totalItems": 2,
+      "purchasedItems": 0,
+      "estimatedTotal": 11.98
+    },
+    "createdAt": "2025-11-24T21:16:59.443Z",
+    "updatedAt": "2025-11-24T21:16:59.455Z"
+  },
+  {
+    "id": "acd2421c-ca2a-4199-a43b-b240b542b5f0",
+    "userId": "f96fdebe-4369-438d-8c23-0c4f9b82b8f9",
+    "name": "Lista Rápida 3",
+    "description": "Teste rápido 3",
+    "status": "active",
+    "items": [
+      {
+        "itemId": "599cc86b-4247-4cbb-9aee-859e71b84745",
+        "itemName": "Arroz",
+        "quantity": 3,
+        "unit": "kg",
+        "estimatedPrice": 5.99,
+        "purchased": false,
+        "notes": "",
+        "addedAt": "2025-11-24T21:16:59.984Z",
+        "updatedAt": "2025-11-24T21:16:59.984Z"
+      }
+    ],
+    "summary": {
+      "totalItems": 3,
+      "purchasedItems": 0,
+      "estimatedTotal": 17.97
+    },
+    "createdAt": "2025-11-24T21:16:59.974Z",
+    "updatedAt": "2025-11-24T21:16:59.985Z"
+  },
+  {
+    "id": "771ab14e-acfd-4b20-9a45-eb6d1f960c91",
+    "userId": "2a9e5a7c-89c0-4258-87c0-0629a72a8c0b",
+    "name": "Lista Teste RabbitMQ",
+    "description": "Testando mensageria assíncrona",
+    "status": "active",
+    "items": [
+      {
+        "itemId": "599cc86b-4247-4cbb-9aee-859e71b84745",
+        "itemName": "Arroz",
+        "quantity": 1,
+        "unit": "kg",
+        "estimatedPrice": 5.99,
+        "purchased": false,
+        "notes": "",
+        "addedAt": "2025-11-24T21:21:11.353Z",
+        "updatedAt": "2025-11-24T21:21:11.353Z"
+      },
+      {
+        "itemId": "39da73ea-01f8-4aae-8363-c63b6da67021",
+        "itemName": "Açúcar",
+        "quantity": 2,
+        "unit": "kg",
+        "estimatedPrice": 4.29,
+        "purchased": false,
+        "notes": "",
+        "addedAt": "2025-11-24T21:21:11.363Z",
+        "updatedAt": "2025-11-24T21:21:11.363Z"
+      }
+    ],
+    "summary": {
+      "totalItems": 3,
+      "purchasedItems": 0,
+      "estimatedTotal": 14.57
+    },
+    "createdAt": "2025-11-24T21:21:11.342Z",
+    "updatedAt": "2025-11-24T21:21:11.363Z"
+  },
+  {
+    "id": "53d2c77a-a708-4958-94e4-402d7d4d09e9",
+    "userId": "2a9e5a7c-89c0-4258-87c0-0629a72a8c0b",
+    "name": "Lista Rápida 1",
+    "description": "Teste rápido 1",
+    "status": "active",
+    "items": [
+      {
+        "itemId": "599cc86b-4247-4cbb-9aee-859e71b84745",
+        "itemName": "Arroz",
+        "quantity": 1,
+        "unit": "kg",
+        "estimatedPrice": 5.99,
+        "purchased": false,
+        "notes": "",
+        "addedAt": "2025-11-24T21:21:16.400Z",
+        "updatedAt": "2025-11-24T21:21:16.400Z"
+      }
+    ],
+    "summary": {
+      "totalItems": 1,
+      "purchasedItems": 0,
+      "estimatedTotal": 5.99
+    },
+    "createdAt": "2025-11-24T21:21:16.387Z",
+    "updatedAt": "2025-11-24T21:21:16.401Z"
+  },
+  {
+    "id": "0eeb1566-1466-4483-8300-19a21ae92266",
+    "userId": "2a9e5a7c-89c0-4258-87c0-0629a72a8c0b",
+    "name": "Lista Rápida 2",
+    "description": "Teste rápido 2",
+    "status": "active",
+    "items": [
+      {
+        "itemId": "599cc86b-4247-4cbb-9aee-859e71b84745",
+        "itemName": "Arroz",
+        "quantity": 2,
+        "unit": "kg",
+        "estimatedPrice": 5.99,
+        "purchased": false,
+        "notes": "",
+        "addedAt": "2025-11-24T21:21:17.430Z",
+        "updatedAt": "2025-11-24T21:21:17.430Z"
+      }
+    ],
+    "summary": {
+      "totalItems": 2,
+      "purchasedItems": 0,
+      "estimatedTotal": 11.98
+    },
+    "createdAt": "2025-11-24T21:21:17.419Z",
+    "updatedAt": "2025-11-24T21:21:17.431Z"
+  },
+  {
+    "id": "56ac41de-0319-4364-a94d-aefa33f483ab",
+    "userId": "2a9e5a7c-89c0-4258-87c0-0629a72a8c0b",
+    "name": "Lista Rápida 3",
+    "description": "Teste rápido 3",
+    "status": "active",
+    "items": [
+      {
+        "itemId": "599cc86b-4247-4cbb-9aee-859e71b84745",
+        "itemName": "Arroz",
+        "quantity": 3,
+        "unit": "kg",
+        "estimatedPrice": 5.99,
+        "purchased": false,
+        "notes": "",
+        "addedAt": "2025-11-24T21:21:18.462Z",
+        "updatedAt": "2025-11-24T21:21:18.462Z"
+      }
+    ],
+    "summary": {
+      "totalItems": 3,
+      "purchasedItems": 0,
+      "estimatedTotal": 17.97
+    },
+    "createdAt": "2025-11-24T21:21:18.451Z",
+    "updatedAt": "2025-11-24T21:21:18.462Z"
+  },
+  {
+    "id": "150f6b0e-827d-491d-b0ed-e118a01d287e",
+    "userId": "42ed130e-9e16-4d97-bf75-84d5f6aa503f",
+    "name": "Lista Teste Simples",
+    "description": "Teste sem emojis",
+    "status": "active",
+    "items": [
+      {
+        "itemId": "599cc86b-4247-4cbb-9aee-859e71b84745",
+        "itemName": "Arroz",
+        "quantity": 1,
+        "unit": "kg",
+        "estimatedPrice": 5.99,
+        "purchased": false,
+        "notes": "",
+        "addedAt": "2025-11-24T21:23:26.994Z",
+        "updatedAt": "2025-11-24T21:23:26.994Z"
+      },
+      {
+        "itemId": "39da73ea-01f8-4aae-8363-c63b6da67021",
+        "itemName": "Açúcar",
+        "quantity": 2,
+        "unit": "kg",
+        "estimatedPrice": 4.29,
+        "purchased": false,
+        "notes": "",
+        "addedAt": "2025-11-24T21:23:27.003Z",
+        "updatedAt": "2025-11-24T21:23:27.003Z"
+      }
+    ],
+    "summary": {
+      "totalItems": 3,
+      "purchasedItems": 0,
+      "estimatedTotal": 14.57
+    },
+    "createdAt": "2025-11-24T21:23:26.982Z",
+    "updatedAt": "2025-11-24T21:23:27.004Z"
+  },
+  {
+    "id": "f16536ae-cb81-468c-ad65-3b77dd47222c",
+    "userId": "e6d35916-5160-4caa-aaac-5a340026b48e",
+    "name": "Minha Lista de Compras",
+    "description": "Lista criada para teste do RabbitMQ",
+    "status": "active",
+    "items": [
+      {
+        "itemId": "599cc86b-4247-4cbb-9aee-859e71b84745",
+        "itemName": "Arroz",
+        "quantity": 1,
+        "unit": "kg",
+        "estimatedPrice": 5.99,
+        "purchased": false,
+        "notes": "",
+        "addedAt": "2025-11-24T21:30:21.163Z",
+        "updatedAt": "2025-11-24T21:30:21.163Z"
+      },
+      {
+        "itemId": "39da73ea-01f8-4aae-8363-c63b6da67021",
+        "itemName": "Açúcar",
+        "quantity": 2,
+        "unit": "kg",
+        "estimatedPrice": 4.29,
+        "purchased": false,
+        "notes": "",
+        "addedAt": "2025-11-24T21:30:21.175Z",
+        "updatedAt": "2025-11-24T21:30:21.175Z"
+      },
+      {
+        "itemId": "8e555c84-e154-49de-8885-75cd2c0d5ae9",
+        "itemName": "Biscoito",
+        "quantity": 3,
+        "unit": "un",
+        "estimatedPrice": 3.99,
+        "purchased": false,
+        "notes": "",
+        "addedAt": "2025-11-24T21:30:21.186Z",
+        "updatedAt": "2025-11-24T21:30:21.186Z"
+      }
+    ],
+    "summary": {
+      "totalItems": 6,
+      "purchasedItems": 0,
+      "estimatedTotal": 26.54
+    },
+    "createdAt": "2025-11-24T21:30:21.144Z",
+    "updatedAt": "2025-11-24T21:30:21.187Z"
+  },
+  {
+    "id": "87516b9f-0980-431a-9aa2-349d8049ba1c",
+    "userId": "2c98b957-e8a9-45e0-9b5b-6cfa295b1103",
+    "name": "Minha Lista de Compras",
+    "description": "Lista criada para teste do RabbitMQ",
+    "status": "active",
+    "items": [
+      {
+        "itemId": "599cc86b-4247-4cbb-9aee-859e71b84745",
+        "itemName": "Arroz",
+        "quantity": 1,
+        "unit": "kg",
+        "estimatedPrice": 5.99,
+        "purchased": false,
+        "notes": "",
+        "addedAt": "2025-11-24T21:35:29.070Z",
+        "updatedAt": "2025-11-24T21:35:29.070Z"
+      },
+      {
+        "itemId": "39da73ea-01f8-4aae-8363-c63b6da67021",
+        "itemName": "Açúcar",
+        "quantity": 2,
+        "unit": "kg",
+        "estimatedPrice": 4.29,
+        "purchased": false,
+        "notes": "",
+        "addedAt": "2025-11-24T21:35:29.083Z",
+        "updatedAt": "2025-11-24T21:35:29.083Z"
+      },
+      {
+        "itemId": "8e555c84-e154-49de-8885-75cd2c0d5ae9",
+        "itemName": "Biscoito",
+        "quantity": 3,
+        "unit": "un",
+        "estimatedPrice": 3.99,
+        "purchased": false,
+        "notes": "",
+        "addedAt": "2025-11-24T21:35:29.099Z",
+        "updatedAt": "2025-11-24T21:35:29.099Z"
+      }
+    ],
+    "summary": {
+      "totalItems": 6,
+      "purchasedItems": 0,
+      "estimatedTotal": 26.54
+    },
+    "createdAt": "2025-11-24T21:35:29.057Z",
+    "updatedAt": "2025-11-24T21:35:29.100Z"
+  },
+  {
+    "id": "d7836455-db9b-4484-82f9-509241a9f49f",
+    "userId": "7139eda6-3811-49d2-884a-56a2e0185b7b",
+    "name": "Minha Lista de Compras",
+    "description": "Lista criada para teste do RabbitMQ",
+    "status": "active",
+    "items": [
+      {
+        "itemId": "599cc86b-4247-4cbb-9aee-859e71b84745",
+        "itemName": "Arroz",
+        "quantity": 1,
+        "unit": "kg",
+        "estimatedPrice": 5.99,
+        "purchased": false,
+        "notes": "",
+        "addedAt": "2025-11-24T21:37:18.125Z",
+        "updatedAt": "2025-11-24T21:37:18.125Z"
+      },
+      {
+        "itemId": "39da73ea-01f8-4aae-8363-c63b6da67021",
+        "itemName": "Açúcar",
+        "quantity": 2,
+        "unit": "kg",
+        "estimatedPrice": 4.29,
+        "purchased": false,
+        "notes": "",
+        "addedAt": "2025-11-24T21:37:18.135Z",
+        "updatedAt": "2025-11-24T21:37:18.135Z"
+      },
+      {
+        "itemId": "8e555c84-e154-49de-8885-75cd2c0d5ae9",
+        "itemName": "Biscoito",
+        "quantity": 3,
+        "unit": "un",
+        "estimatedPrice": 3.99,
+        "purchased": false,
+        "notes": "",
+        "addedAt": "2025-11-24T21:37:18.147Z",
+        "updatedAt": "2025-11-24T21:37:18.147Z"
+      }
+    ],
+    "summary": {
+      "totalItems": 6,
+      "purchasedItems": 0,
+      "estimatedTotal": 26.54
+    },
+    "createdAt": "2025-11-24T21:37:18.106Z",
+    "updatedAt": "2025-11-24T21:37:18.147Z"
   }
 ]

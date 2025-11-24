@@ -1,8 +1,7 @@
 const amqp = require('amqplib');
 
 // Default to provided CloudAMQP instance if RABBITMQ_URL not set
-const RABBIT_URL = process.env.RABBITMQ_URL || 'amqps://kjojionw:EF3ykbemEFsNtbElSSIWe60mMc1-rYQM@jaragua.lmq.cloudamqp.com/kjojionw';
-const EXCHANGE = 'shopping_events';
+const RABBIT_URL = 'amqps://kjojionw:EF3ykbemEFsNtbElSSIWe60mMc1-rYQM@jaragua.lmq.cloudamqp.com/kjojionw';const EXCHANGE = 'shopping_events';
 const BINDING_KEY = 'list.checkout.#';
 const QUEUE_NAME = 'analytics_queue';
 
