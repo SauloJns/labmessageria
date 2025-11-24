@@ -1,4 +1,3 @@
-// teste-rabbitmq-demo.js
 const axios = require('axios');
 
 const API_BASE = 'http://localhost:3000/api';
@@ -18,7 +17,6 @@ class RabbitMQDemo {
     async setup() {
         console.log('🚀 CONFIGURANDO TESTE RABBITMQ\n');
 
-        // 1. Criar usuário
         console.log('1. 👤 Criando usuário...');
         const userData = {
             email: `rabbitmq_${Date.now()}@teste.com`,
@@ -38,7 +36,6 @@ class RabbitMQDemo {
             throw err;
         }
 
-        // 2. Buscar itens
         console.log('2. 📦 Buscando itens...');
         try {
             const itensResponse = await axios.get(`${API_BASE}/items`, {
@@ -59,7 +56,6 @@ class RabbitMQDemo {
         console.log('\n🎯 TESTE RABBITMQ - CHECKOUT ASSÍNCRONO\n');
 
         try {
-            // 1. Criar lista
             console.log('1. 🛒 Criando lista de compras...');
             const lista = await axios.post(`${API_BASE}/lists`, {
                 name: 'Lista Teste RabbitMQ',
@@ -71,7 +67,6 @@ class RabbitMQDemo {
             const listaId = lista.data.data.id;
             console.log(`✅ Lista criada: ${listaId}`);
 
-            // 2. Adicionar itens à lista
             console.log('2. 📋 Adicionando itens à lista...');
             if (this.items.length >= 2) {
                 for (let i = 0; i < 2; i++) {
@@ -85,7 +80,6 @@ class RabbitMQDemo {
                 }
             }
 
-            // 3. Ver lista antes do checkout
             console.log('3. 👀 Verificando lista antes do checkout...');
             const listaAntes = await axios.get(`${API_BASE}/lists/${listaId}`, {
                 headers: this.getAuthHeader()
@@ -93,7 +87,6 @@ class RabbitMQDemo {
             console.log(`   📊 Itens: ${listaAntes.data.data.items.length}`);
             console.log(`   💰 Total: R$ ${listaAntes.data.data.summary.estimatedTotal.toFixed(2)}`);
 
-            // 4. 🎯 MOMENTO DA VERDADE - CHECKOUT RABBITMQ!
             console.log('\n4. 🎯 EXECUTANDO CHECKOUT (DISPARANDO RABBITMQ)...');
             console.log('   📤 Esta chamada vai publicar no exchange "shopping_events"');
             console.log('   🚀 Deve retornar IMEDIATAMENTE com 202 Accepted\n');
@@ -112,13 +105,11 @@ class RabbitMQDemo {
             console.log(`   📝 Mensagem: ${checkout.data.message}`);
             console.log(`   🆔 Lista ID: ${checkout.data.listId || listaId}`);
 
-            // 5. Verificações
             console.log('\n5. ✅ VERIFICAÇÕES:');
             console.log(`   - Status 202 Accepted: ${checkout.status === 202 ? '✅ SIM' : '❌ NÃO'}`);
             console.log(`   - Resposta rápida (<1s): ${tempoResposta < 1000 ? '✅ SIM' : '❌ NÃO'}`);
             console.log(`   - Mensagem assíncrona: ${checkout.data.message.includes('processamento') ? '✅ SIM' : '❌ NÃO'}`);
 
-            // 6. O que deve acontecer nos consumers
             console.log('\n6. 👀 O QUE DEVE ACONTECER AGORA:');
             console.log('   📊 Analytics Consumer deve mostrar:');
             console.log(`      "Analytics: Lista ${listaId} total gasto R$ ${listaAntes.data.data.summary.estimatedTotal.toFixed(2)}"`);
@@ -156,7 +147,6 @@ class RabbitMQDemo {
         for (let i = 1; i <= 3; i++) {
             console.log(`\n--- Checkout ${i}/3 ---`);
             
-            // Criar lista rápida
             const lista = await axios.post(`${API_BASE}/lists`, {
                 name: `Lista Rápida ${i}`,
                 description: `Teste rápido ${i}`
@@ -164,7 +154,6 @@ class RabbitMQDemo {
                 headers: this.getAuthHeader()
             });
 
-            // Adicionar um item se disponível
             if (this.items.length > 0) {
                 await axios.post(`${API_BASE}/lists/${lista.data.data.id}/items`, {
                     itemId: this.items[0].id,
@@ -174,7 +163,6 @@ class RabbitMQDemo {
                 });
             }
 
-            // Checkout
             const inicio = Date.now();
             const checkout = await axios.post(`${API_BASE}/lists/${lista.data.data.id}/checkout`, {}, {
                 headers: this.getAuthHeader()
@@ -190,7 +178,7 @@ class RabbitMQDemo {
 
             console.log(`   ✅ Checkout ${i}: ${checkout.status} em ${tempo}ms`);
             
-            await this.delay(500); // Pequena pausa entre checkouts
+            await this.delay(500); 
         }
 
         console.log('\n📊 RESUMO MÚLTIPLOS CHECKOUTS:');
@@ -207,11 +195,9 @@ class RabbitMQDemo {
 
             await this.setup();
 
-            // Teste principal
             const resultado = await this.testRabbitMQCheckout();
 
             if (resultado.success) {
-                // Teste adicional com múltiplos checkouts
                 await this.testMultipleCheckouts();
 
                 console.log('\n🎉 DEMONSTRAÇÃO CONCLUÍDA!');
@@ -221,11 +207,6 @@ class RabbitMQDemo {
                 console.log('✅ Mensageria distribuída ativa');
                 console.log('✅ Consumers processando em background');
                 console.log('');
-                console.log('📋 PARA MOSTRAR NA SALA:');
-                console.log('   1. CloudAMQP com mensagens processadas');
-                console.log('   2. Terminais dos consumers com logs');
-                console.log('   3. Resposta rápida da API (202 Accepted)');
-                console.log('   4. Processamento em background');
             } else {
                 console.log('\n❌ DEMONSTRAÇÃO FALHOU');
                 console.log('💡 Verifique:');
@@ -240,6 +221,5 @@ class RabbitMQDemo {
     }
 }
 
-// Executar demonstração
 const demo = new RabbitMQDemo();
 demo.run();

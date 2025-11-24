@@ -73,6 +73,7 @@ class ListService {
                     'PUT /lists/:id',
                     'DELETE /lists/:id',
                     'POST /lists/:id/items',
+                    'POST /lists/:id/checkout',
                     'PUT /lists/:id/items/:itemId',
                     'DELETE /lists/:id/items/:itemId',
                     'GET /lists/:id/summary',
@@ -677,7 +678,6 @@ class ListService {
             };
 
             // Publish to RabbitMQ (exchange: shopping_events, routing key: list.checkout.completed)
-            // Use CLOUD AMQPS instance by default when RABBITMQ_URL not provided
             const rabbitUrl = process.env.RABBITMQ_URL || 'amqps://kjojionw:EF3ykbemEFsNtbElSSIWe60mMc1-rYQM@jaragua.lmq.cloudamqp.com/kjojionw';
             try {
                 const connection = await amqp.connect(rabbitUrl);
@@ -685,13 +685,29 @@ class ListService {
                 const exchange = 'shopping_events';
                 await channel.assertExchange(exchange, 'topic', { durable: true });
                 const routingKey = 'list.checkout.completed';
-                channel.publish(exchange, routingKey, Buffer.from(JSON.stringify(event)), { persistent: false });
+                
+                // Publicar mensagem
+                const published = channel.publish(exchange, routingKey, Buffer.from(JSON.stringify(event)), { persistent: true });
+                console.log('📤 Evento publicado em', exchange, routingKey, '- Sucesso:', published);
+                
+                // DEBUG: Verificar se o exchange existe
+                try {
+                    const check = await channel.checkExchange('shopping_events');
+                    console.log('✅ Exchange shopping_events existe');
+                } catch (e) {
+                    console.log('❌ Exchange shopping_events NÃO existe:', e.message);
+                }
+                
+                // Aguardar um pouco para garantir entrega
+                await new Promise(resolve => setTimeout(resolve, 500));
+                
                 await channel.close();
                 await connection.close();
-                console.log('📤 Evento publicado em', exchange, routingKey);
+                console.log('✅ Conexão RabbitMQ fechada');
+                
             } catch (err) {
                 console.error('❌ Erro ao publicar evento RabbitMQ:', err.message);
-                // Do not fail the request if messaging is down
+                // Não falha a requisição se o RabbitMQ estiver down
             }
 
             // Return 202 Accepted immediately
@@ -756,7 +772,6 @@ class ListService {
 const listService = new ListService();
 listService.start();
 
- 
 process.on('SIGTERM', () => {
     console.log('🛑 Recebido SIGTERM, encerrando List Service...');
     serviceRegistry.unregister('list-service');
