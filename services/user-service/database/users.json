@@ -142,5 +142,37 @@
     "status": "active",
     "createdAt": "2025-11-24T21:37:18.047Z",
     "updatedAt": "2025-11-24T21:37:18.048Z"
+  },
+  {
+    "id": "c2e20a0a-78b5-4548-bec8-b7bfbeee63c0",
+    "email": "teste_1764020552264@email.com",
+    "username": "usuario1764020552264",
+    "password": "$2a$12$VGD78T/v/m/2XsrGt173EuVv54eJwZq6/f3xz1FMQK/tGFnEtTv92",
+    "firstName": "Usuario",
+    "lastName": "Teste",
+    "preferences": {
+      "defaultStore": "Mercado Central",
+      "currency": "BRL"
+    },
+    "role": "user",
+    "status": "active",
+    "createdAt": "2025-11-24T21:42:32.552Z",
+    "updatedAt": "2025-11-24T21:42:32.553Z"
+  },
+  {
+    "id": "b210faaf-f5d6-4984-a90a-35815aeeb6a8",
+    "email": "teste_1764020672061@email.com",
+    "username": "usuario1764020672061",
+    "password": "$2a$12$zm/VBtQDhAjtVrZKjwYnleU5K4kGWoeaXFOYCZ8JfCjo4FH7aedV6",
+    "firstName": "Usuario",
+    "lastName": "Teste",
+    "preferences": {
+      "defaultStore": "Mercado Central",
+      "currency": "BRL"
+    },
+    "role": "user",
+    "status": "active",
+    "createdAt": "2025-11-24T21:44:32.391Z",
+    "updatedAt": "2025-11-24T21:44:32.392Z"
   }
 ]

@@ -737,5 +737,103 @@
     },
     "createdAt": "2025-11-24T21:37:18.106Z",
     "updatedAt": "2025-11-24T21:37:18.147Z"
+  },
+  {
+    "id": "f9f27b2e-af98-411c-803f-03ee61b13904",
+    "userId": "c2e20a0a-78b5-4548-bec8-b7bfbeee63c0",
+    "name": "Minha Lista de Compras",
+    "description": "Lista criada para teste do RabbitMQ",
+    "status": "active",
+    "items": [
+      {
+        "itemId": "599cc86b-4247-4cbb-9aee-859e71b84745",
+        "itemName": "Arroz",
+        "quantity": 1,
+        "unit": "kg",
+        "estimatedPrice": 5.99,
+        "purchased": false,
+        "notes": "",
+        "addedAt": "2025-11-24T21:42:32.592Z",
+        "updatedAt": "2025-11-24T21:42:32.592Z"
+      },
+      {
+        "itemId": "39da73ea-01f8-4aae-8363-c63b6da67021",
+        "itemName": "Açúcar",
+        "quantity": 2,
+        "unit": "kg",
+        "estimatedPrice": 4.29,
+        "purchased": false,
+        "notes": "",
+        "addedAt": "2025-11-24T21:42:32.603Z",
+        "updatedAt": "2025-11-24T21:42:32.603Z"
+      },
+      {
+        "itemId": "8e555c84-e154-49de-8885-75cd2c0d5ae9",
+        "itemName": "Biscoito",
+        "quantity": 3,
+        "unit": "un",
+        "estimatedPrice": 3.99,
+        "purchased": false,
+        "notes": "",
+        "addedAt": "2025-11-24T21:42:32.614Z",
+        "updatedAt": "2025-11-24T21:42:32.614Z"
+      }
+    ],
+    "summary": {
+      "totalItems": 6,
+      "purchasedItems": 0,
+      "estimatedTotal": 26.54
+    },
+    "createdAt": "2025-11-24T21:42:32.581Z",
+    "updatedAt": "2025-11-24T21:42:32.615Z"
+  },
+  {
+    "id": "5a429889-d41d-4349-abef-efe7c40cd5cd",
+    "userId": "b210faaf-f5d6-4984-a90a-35815aeeb6a8",
+    "name": "Minha Lista de Compras",
+    "description": "Lista criada para teste do RabbitMQ",
+    "status": "active",
+    "items": [
+      {
+        "itemId": "599cc86b-4247-4cbb-9aee-859e71b84745",
+        "itemName": "Arroz",
+        "quantity": 1,
+        "unit": "kg",
+        "estimatedPrice": 5.99,
+        "purchased": false,
+        "notes": "",
+        "addedAt": "2025-11-24T21:44:32.432Z",
+        "updatedAt": "2025-11-24T21:44:32.432Z"
+      },
+      {
+        "itemId": "39da73ea-01f8-4aae-8363-c63b6da67021",
+        "itemName": "Açúcar",
+        "quantity": 2,
+        "unit": "kg",
+        "estimatedPrice": 4.29,
+        "purchased": false,
+        "notes": "",
+        "addedAt": "2025-11-24T21:44:32.444Z",
+        "updatedAt": "2025-11-24T21:44:32.444Z"
+      },
+      {
+        "itemId": "8e555c84-e154-49de-8885-75cd2c0d5ae9",
+        "itemName": "Biscoito",
+        "quantity": 3,
+        "unit": "un",
+        "estimatedPrice": 3.99,
+        "purchased": false,
+        "notes": "",
+        "addedAt": "2025-11-24T21:44:32.458Z",
+        "updatedAt": "2025-11-24T21:44:32.458Z"
+      }
+    ],
+    "summary": {
+      "totalItems": 6,
+      "purchasedItems": 0,
+      "estimatedTotal": 26.54
+    },
+    "createdAt": "2025-11-24T21:44:32.420Z",
+    "updatedAt": "2025-11-24T21:44:32.459Z"
   }
 ]

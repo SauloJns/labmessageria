@@ -98,18 +98,8 @@ async function testarSistemaCompleto() {
         console.log('Mensagem: ' + checkoutResponse.data.message);
         console.log('');
 
-        // 8. AGUARDAR E VERIFICAR MENSAGENS
-        console.log('8. Aguardando processamento das mensagens...');
-        console.log('Os consumers devem mostrar:');
-        console.log(' - Analytics: Lista ' + listaId + ' total gasto R$ ' + lista.summary.estimatedTotal.toFixed(2));
-        console.log(' - Notification: Enviando comprovante para ' + userData.email);
-        console.log('');
-
-        console.log('Aguardando 5 segundos...');
-        await new Promise(resolve => setTimeout(resolve, 5000));
-
-        // 9. TESTE ADICIONAL: ENVIAR MENSAGEM DIRETA
-        console.log('9. Teste adicional: enviando mensagem direta...');
+        // 8. TESTE ADICIONAL: ENVIAR MENSAGEM DIRETA
+        console.log('8. Teste adicional: enviando mensagem direta...');
         const conn = await amqp.connect(RABBIT_URL);
         const channel = await conn.createChannel();
         
@@ -129,13 +119,11 @@ async function testarSistemaCompleto() {
         );
         
         console.log('Mensagem de teste enviada diretamente para o RabbitMQ');
-        console.log('Aguardando 3 segundos...');
-        await new Promise(resolve => setTimeout(resolve, 3000));
         
         await channel.close();
         await conn.close();
 
-        // 10. RESUMO FINAL
+        // 9. RESUMO FINAL
         console.log('\n====================================');
         console.log('TESTE CONCLUIDO COM SUCESSO!');
         console.log('====================================');
@@ -144,10 +132,10 @@ async function testarSistemaCompleto() {
         console.log('Checkout realizado: ' + checkoutResponse.status);
         console.log('Mensagens enviadas para RabbitMQ: 2');
         console.log('');
-        console.log('VERIFICAR:');
-        console.log('1. Terminais dos consumers com logs de processamento');
-        console.log('2. CloudAMQP/LavinMQ com mensagens nas filas');
-        console.log('3. Resposta rapida da API (202 Accepted)');
+        console.log('VERIFICAR NOS CONSUMERS:');
+        console.log('1. Analytics: Lista ' + listaId + ' total gasto R$ ' + lista.summary.estimatedTotal.toFixed(2));
+        console.log('2. Notification: Enviando comprovante para ' + userData.email);
+        console.log('3. CloudAMQP/LavinMQ com mensagens nas filas');
 
     } catch (error) {
         console.error('ERRO NO TESTE: ' + error.message);
