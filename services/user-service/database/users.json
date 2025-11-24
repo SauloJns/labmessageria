@@ -174,5 +174,21 @@
     "status": "active",
     "createdAt": "2025-11-24T21:44:32.391Z",
     "updatedAt": "2025-11-24T21:44:32.392Z"
+  },
+  {
+    "id": "ec76fa9e-4b18-43e4-a6b8-e11448e407a4",
+    "email": "teste_1764021036626@email.com",
+    "username": "usuario1764021036626",
+    "password": "$2a$12$NuUg9m0z2JDNEnn2ryC4lOk2x5KdlQje0QGTC.nR17wY8qWg.kCRi",
+    "firstName": "Usuario",
+    "lastName": "Teste",
+    "preferences": {
+      "defaultStore": "Mercado Central",
+      "currency": "BRL"
+    },
+    "role": "user",
+    "status": "active",
+    "createdAt": "2025-11-24T21:50:36.970Z",
+    "updatedAt": "2025-11-24T21:50:36.971Z"
   }
 ]

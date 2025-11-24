@@ -13,7 +13,6 @@ async function testarSistemaCompleto() {
     let userId = null;
 
     try {
-        // 1. REGISTRAR USUARIO
         console.log('1. Registrando novo usuario...');
         const userData = {
             email: `teste_${Date.now()}@email.com`,
@@ -29,14 +28,12 @@ async function testarSistemaCompleto() {
         console.log('Usuario registrado: ' + userData.email);
         console.log('Token obtido com sucesso\n');
 
-        // 2. VALIDAR TOKEN
         console.log('2. Validando token...');
         const validacao = await axios.post(`${API_BASE}/auth/validate`, {
             token: token
         });
         console.log('Token validado: ' + validacao.data.data.user.email + '\n');
 
-        // 3. BUSCAR ITENS
         console.log('3. Buscando itens disponiveis...');
         const itensResponse = await axios.get(`${API_BASE}/items`, {
             headers: { Authorization: `Bearer ${token}` }
@@ -44,7 +41,6 @@ async function testarSistemaCompleto() {
         const items = itensResponse.data.data || [];
         console.log(items.length + ' itens encontrados no catalogo\n');
 
-        // 4. CRIAR LISTA DE COMPRAS
         console.log('4. Criando lista de compras...');
         const listaResponse = await axios.post(`${API_BASE}/lists`, {
             name: 'Minha Lista de Compras',
@@ -56,7 +52,6 @@ async function testarSistemaCompleto() {
         const listaId = listaResponse.data.data.id;
         console.log('Lista criada: ' + listaId + '\n');
 
-        // 5. ADICIONAR ITENS A LISTA
         console.log('5. Adicionando itens a lista...');
         if (items.length >= 3) {
             for (let i = 0; i < 3; i++) {
@@ -71,7 +66,6 @@ async function testarSistemaCompleto() {
         }
         console.log('');
 
-        // 6. VERIFICAR LISTA ANTES DO CHECKOUT
         console.log('6. Verificando lista antes do checkout...');
         const listaDetalhes = await axios.get(`${API_BASE}/lists/${listaId}`, {
             headers: { Authorization: `Bearer ${token}` }
@@ -80,7 +74,6 @@ async function testarSistemaCompleto() {
         console.log('Itens na lista: ' + lista.items.length);
         console.log('Total estimado: R$ ' + lista.summary.estimatedTotal.toFixed(2) + '\n');
 
-        // 7. EXECUTAR CHECKOUT (RABBITMQ)
         console.log('7. Executando checkout...');
         console.log('Esta acao vai publicar mensagem no RabbitMQ/LavinMQ');
         console.log('Exchange: shopping_events');
@@ -98,7 +91,6 @@ async function testarSistemaCompleto() {
         console.log('Mensagem: ' + checkoutResponse.data.message);
         console.log('');
 
-        // 8. TESTE ADICIONAL: ENVIAR MENSAGEM DIRETA
         console.log('8. Teste adicional: enviando mensagem direta...');
         const conn = await amqp.connect(RABBIT_URL);
         const channel = await conn.createChannel();
@@ -123,7 +115,6 @@ async function testarSistemaCompleto() {
         await channel.close();
         await conn.close();
 
-        // 9. RESUMO FINAL
         console.log('\n====================================');
         console.log('TESTE CONCLUIDO COM SUCESSO!');
         console.log('====================================');

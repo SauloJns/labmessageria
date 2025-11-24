@@ -835,5 +835,54 @@
     },
     "createdAt": "2025-11-24T21:44:32.420Z",
     "updatedAt": "2025-11-24T21:44:32.459Z"
+  },
+  {
+    "id": "d53bf0ed-b57a-4966-83ed-030e862672bd",
+    "userId": "ec76fa9e-4b18-43e4-a6b8-e11448e407a4",
+    "name": "Minha Lista de Compras",
+    "description": "Lista criada para teste do RabbitMQ",
+    "status": "active",
+    "items": [
+      {
+        "itemId": "599cc86b-4247-4cbb-9aee-859e71b84745",
+        "itemName": "Arroz",
+        "quantity": 1,
+        "unit": "kg",
+        "estimatedPrice": 5.99,
+        "purchased": false,
+        "notes": "",
+        "addedAt": "2025-11-24T21:50:37.064Z",
+        "updatedAt": "2025-11-24T21:50:37.064Z"
+      },
+      {
+        "itemId": "39da73ea-01f8-4aae-8363-c63b6da67021",
+        "itemName": "Açúcar",
+        "quantity": 2,
+        "unit": "kg",
+        "estimatedPrice": 4.29,
+        "purchased": false,
+        "notes": "",
+        "addedAt": "2025-11-24T21:50:37.080Z",
+        "updatedAt": "2025-11-24T21:50:37.080Z"
+      },
+      {
+        "itemId": "8e555c84-e154-49de-8885-75cd2c0d5ae9",
+        "itemName": "Biscoito",
+        "quantity": 3,
+        "unit": "un",
+        "estimatedPrice": 3.99,
+        "purchased": false,
+        "notes": "",
+        "addedAt": "2025-11-24T21:50:37.094Z",
+        "updatedAt": "2025-11-24T21:50:37.094Z"
+      }
+    ],
+    "summary": {
+      "totalItems": 6,
+      "purchasedItems": 0,
+      "estimatedTotal": 26.54
+    },
+    "createdAt": "2025-11-24T21:50:37.037Z",
+    "updatedAt": "2025-11-24T21:50:37.095Z"
   }
 ]
